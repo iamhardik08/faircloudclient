@@ -35,7 +35,7 @@ const MainApp = () => {
     }
 
     try {
-      const response = await axios.post("http://localhost:3001/login", { username, password });
+      const response = await axios.post("https://faircloudserver-hardik-trivedis-projects-038e8892.vercel.app/login", { username, password });
       if (response && response.data.token) {
         localStorage.setItem("token", response.data.token);
         setIsLoggedIn(true);
@@ -55,7 +55,7 @@ const MainApp = () => {
   const fetchDashboard = async () => {
     try {
       const token = localStorage.getItem("token");
-      const response = await axios.get("http://localhost:3001/dashboard", {
+      const response = await axios.get("https://faircloudserver-hardik-trivedis-projects-038e8892.vercel.app/dashboard", {
         headers: { Authorization: `Bearer ${token}` },
       });
       alert(response.data.message);
